@@ -1,8 +1,19 @@
 return {
-  {
-    "hrsh7th/nvim-cmp",
-    enabled = false,
-  },
+  -- {
+  --   import = "nvchad.blink.lazyspec",
+  --   opts = {
+  --     keymap = {
+  --       preset = "none",
+  --
+  --       ["<CR>"] = { "accept", "fallback" },
+  --       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
+  --       ["<C-j>"] = { "select_next", "fallback" },
+  --       ["<C-k>"] = { "select_prev", "fallback" },
+  --       ["<Up>"] = { "select_prev", "fallback" },
+  --       ["<Down>"] = { "select_next", "fallback" },
+  --     },
+  --   },
+  -- },
   {
     "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
@@ -39,45 +50,28 @@ return {
     "folke/noice.nvim",
     event = "VeryLazy",
     opts = {
-      -- add any options here
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- add a border to hover docs and signature help
+      },
+
+      views = {
+        popupmenu = {
+          scrollbar = false,
+        },
+      },
     },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      "MunifTanjim/nui.nvim",
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      "rcarriga/nvim-notify",
-    },
-    enabled = false,
-    config = function()
-      require("noice").setup {
-        lsp = {
-          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-          },
-        },
-        -- you can enable a preset for easier configuration
-        presets = {
-          bottom_search = true, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
-          long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = false, -- add a border to hover docs and signature help
-        },
-        cmdline = {
-          enabled = true,
-          -- view = "cmdline", -- view for rendering the cmdline. Change to `cmdline` to get a classic cmdline at the bottom
-        },
-        views = {
-          split = {
-            enter = true,
-          },
-        },
-      }
-    end,
   },
 }

@@ -31,6 +31,7 @@ M.base46 = {
     NeoTreeCursorLine = { bg = colors.bg300 },
     BlinkCmpMenuBorder = { fg = colors.border },
     BlinkCmpDocBorder = { fg = colors.border },
+    NoiceCmdlinePopupBorder = { bg = colors.bg500, fg = colors.border },
   },
 
   hl_override = {
