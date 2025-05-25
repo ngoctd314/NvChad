@@ -6,6 +6,7 @@ local options = {
     selection_caret = "  ",
     selection_strategy = "reset",
     sorting_strategy = "ascending",
+    results_title = "",
     layout_config = {
       horizontal = {
         prompt_position = "top",

@@ -27,7 +27,6 @@ local builtin = require "telescope.builtin"
 map("n", "<leader>fa", function()
   builtin.find_files {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
     follow = true,
     no_ignore = true,
@@ -38,7 +37,6 @@ end, { desc = "telescope find all files" })
 map("n", "<leader>ff", function()
   builtin.find_files {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
   }
 end, { desc = "telescope find files" })
@@ -46,7 +44,6 @@ end, { desc = "telescope find files" })
 map("n", "<leader>fb", function()
   builtin.buffers {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
     sort_lastused = true,
   }
@@ -55,7 +52,6 @@ end, { desc = "Telescope buffers" })
 map("n", "<leader>fg", function()
   builtin.live_grep {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
   }
 end, { desc = "Telescope live grep" })
@@ -63,7 +59,6 @@ end, { desc = "Telescope live grep" })
 map("n", "<leader>fs", function()
   require("telescope").extensions.aerial.aerial {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
   }
 end, { desc = "Symbols" })
@@ -71,7 +66,6 @@ end, { desc = "Symbols" })
 map("n", "<leader>fz", function()
   builtin.current_buffer_fuzzy_find {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
   }
 end, { desc = "Current buffer" })
@@ -79,7 +73,6 @@ end, { desc = "Current buffer" })
 map("n", "<leader>fd", function()
   builtin.diagnostics {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
     sort_by = "severity",
   }
@@ -96,7 +89,6 @@ end)
 map("n", "<leader>fo", function()
   builtin.oldfiles {
     prompt_title = "",
-    results_title = "",
     preview_title = "",
     sort_lastused = true,
     only_cwd = true,

@@ -32,7 +32,7 @@ return {
 
     vim.diagnostic.config {
       severity_sort = true,
-      float = { border = "rounded", max_width = 80 },
+      float = { border = "single", max_width = 80 },
       underline = true,
       focusable = true,
       virtual_text = {
@@ -43,7 +43,7 @@ return {
     map("n", "K", vim.diagnostic.open_float, { desc = "Open Diagnostics in Float" })
     map("n", "S", function()
       vim.lsp.buf.hover {
-        border = "rounded", -- solid
+        border = "single", -- solid
         max_width = 80,
         focusable = false,
         silent = true,
@@ -68,21 +68,22 @@ return {
     local original_capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
-    local signatureHelp = vim.lsp.buf.signature_help
-    vim.lsp.buf.signature_help = function()
-      return signatureHelp {
-        title = "Test",
-        title_pos = "left",
-        border = "single",
-        max_width = 80,
-        focusable = false,
-        silent = true,
-      }
-    end
-    -- vim.lsp.enable "gopls"
-    -- vim.lsp.config("gopls", {
-    --   capabilities = capabilities,
-    -- })
+    -- local signatureHelp = vim.lsp.buf.signature_help
+    -- vim.lsp.buf.signature_help = function()
+    --   return signatureHelp {
+    --     title = "Test",
+    --     title_pos = "left",
+    --     border = "single",
+    --     max_width = 80,
+    --     focusable = false,
+    --     silent = true,
+    --   }
+    -- end
+    vim.lsp.buf.signature_help = function() end
+    vim.lsp.enable "gopls"
+    vim.lsp.config("gopls", {
+      capabilities = capabilities,
+    })
 
     local ensure_installed = vim.tbl_keys(servers or {})
     require("mason-tool-installer").setup { ensure_installed = ensure_installed }

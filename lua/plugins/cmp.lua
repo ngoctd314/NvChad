@@ -85,7 +85,11 @@ return {
         },
       },
       signature = {
-        enabled = false,
+        enabled = true,
+        window = {
+          show_documentation = true,
+          border = atom_styled and "none" or "single",
+        },
       },
       cmdline = {
         keymap = { preset = "inherit" },

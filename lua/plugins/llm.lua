@@ -7,8 +7,7 @@ return {
       -- add any opts here
       -- for example
       --
-      provider = "copilot",
-      -- provider = "openai",
+      provider = "copilot", -- or "copilot", "openai", "claude"
       -- openai = {
       -- 	endpoint = "https://api.openai.com/v1",
       -- 	model = "gpt-4o", -- your desired model (or use gpt-4o, etc.)
@@ -27,8 +26,15 @@ return {
         temperature = 0,
         max_tokens = 20480,
       },
+      claude = {
+        endpoint = "https://api.anthropic.com",
+        model = "claude-3-7-sonnet-20250219",
+        timeout = 30000, -- Timeout in milliseconds
+        temperature = 0,
+        max_tokens = 20480,
+      },
       behaviour = {
-        enable_token_counting = false,
+        enable_token_counting = true,
       },
       mappings = {
         sidebar = {
@@ -104,4 +110,5 @@ return {
   {
     "github/copilot.vim",
   },
+  { "augmentcode/augment.vim" },
 }

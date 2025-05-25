@@ -1,18 +1,6 @@
 return {
   -- {
   --   import = "nvchad.blink.lazyspec",
-  --   opts = {
-  --     keymap = {
-  --       preset = "none",
-  --
-  --       ["<CR>"] = { "accept", "fallback" },
-  --       ["<C-space>"] = { "show", "show_documentation", "hide_documentation" },
-  --       ["<C-j>"] = { "select_next", "fallback" },
-  --       ["<C-k>"] = { "select_prev", "fallback" },
-  --       ["<Up>"] = { "select_prev", "fallback" },
-  --       ["<Down>"] = { "select_next", "fallback" },
-  --     },
-  --   },
   -- },
   {
     "iamcco/markdown-preview.nvim",
@@ -49,13 +37,20 @@ return {
   {
     "folke/noice.nvim",
     event = "VeryLazy",
+    enabled = false,
     opts = {
       lsp = {
         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
         override = {
-          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-          ["vim.lsp.util.stylize_markdown"] = true,
-          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = false,
+          ["vim.lsp.util.stylize_markdown"] = false,
+          ["cmp.entry.get_documentation"] = false, -- requires hrsh7th/nvim-cmp
+        },
+        hover = {
+          enabled = false,
+        },
+        signature = {
+          enabled = false,
         },
       },
       -- you can enable a preset for easier configuration
@@ -64,12 +59,18 @@ return {
         command_palette = true, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
         inc_rename = false, -- enables an input dialog for inc-rename.nvim
-        lsp_doc_border = false, -- add a border to hover docs and signature help
+        lsp_doc_border = true, -- add a border to hover docs and signature help
       },
 
       views = {
         popupmenu = {
           scrollbar = false,
+        },
+      },
+
+      cmdline = {
+        format = {
+          cmdline = { icon = "❯" },
         },
       },
     },
