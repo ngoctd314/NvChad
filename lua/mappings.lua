@@ -1,5 +1,3 @@
--- require "nvchad.mappings"
-
 local map = vim.keymap.set
 
 map("n", "<leader>h", "<C-w>h")
@@ -99,42 +97,3 @@ end, { desc = "Telescope oldfiles" })
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 map("v", "<leader>r", "<cmd>SnipRun<cr>", { desc = "Run code" })
-
--- local nomap = vim.keymap.del
--- nomap("i", "<C-b>")
--- nomap("i", "<C-e>")
--- nomap("i", "<C-h>")
--- nomap("i", "<C-l>")
--- nomap("i", "<C-j>")
--- nomap("i", "<C-k>")
--- nomap("n", "<C-h>")
--- nomap("n", "<C-l>")
--- nomap("n", "<Esc>")
--- nomap("n", "<C-s>")
--- nomap("n", "<C-c>")
--- nomap("n", "<leader>n")
--- nomap("n", "<leader>rn")
--- nomap("n", "<leader>ch")
--- nomap({ "n", "x" }, "<leader>fm")
--- nomap("n", "<leader>ds")
--- nomap("n", "<leader>b")
--- nomap("n", "<tab>")
--- nomap("n", "<S-tab>")
--- nomap("n", "<leader>x")
--- nomap("n", "<leader>/")
--- nomap("v", "<leader>/")
--- nomap("n", "<C-n>")
--- nomap("n", "<leader>fw")
--- nomap("n", "<leader>fh")
--- nomap("n", "<leader>ma")
--- nomap("n", "<leader>cm")
--- nomap("n", "<leader>gt")
--- nomap("n", "<leader>pt")
--- nomap("n", "<leader>th")
--- nomap("n", "<leader>v")
--- nomap({ "n", "t" }, "<A-v>")
--- nomap({ "n", "t" }, "<A-h>")
--- nomap({ "n", "t" }, "<A-i>")
--- nomap("n", "<leader>wK")
--- nomap("n", "<leader>wk")
---
