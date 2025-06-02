@@ -22,5 +22,5 @@ vim.schedule(function()
   require "mappings"
 end)
 
-vim.o.background = "dark" -- or "light" for light mode
+vim.o.background = "light" -- or "light" for light mode
 vim.cmd [[colorscheme gruvbox]]
