@@ -42,29 +42,7 @@ return {
           reverse_switch_windows = "noop",
         },
       },
-      windows = {
-        width = 30, -- default % based on available width in vertical layout
-        position = "right",
-        sidebar_header = {
-          enabled = false, -- true, false to enable/disable the header
-          align = "right", -- left, center, right for title
-          rounded = false,
-        },
-        input = {
-          prefix = "❯ ",
-        },
-        edit = {
-          start_insert = true, -- Start insert mode when opening the edit window
-          border = "rounded", -- border style for the edit window
-        },
-        ask = {
-          floating = false, -- Open the 'AvanteAsk' prompt in a floating window
-          start_insert = true, -- Start insert mode when opening the ask window
-          border = "rounded", -- border style for the ask window
-          ---@type "ours" | "theirs"
-          focus_on_apply = "theirs", -- which diff to focus after applying
-        },
-      },
+      windows = {},
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
     build = "make",

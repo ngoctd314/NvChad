@@ -6,6 +6,7 @@ local opt = vim.opt
 local o = vim.o
 local g = vim.g
 
+o.termguicolors = true
 o.laststatus = 3
 o.showmode = false
 
