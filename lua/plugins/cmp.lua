@@ -2,10 +2,6 @@ local menu_cols = { { "label" }, { "kind_icon" }, { "kind" } }
 
 return {
   {
-    "hrsh7th/nvim-cmp",
-    enabled = false,
-  },
-  {
     "saghen/blink.cmp",
     dependencies = {
       "rafamadriz/friendly-snippets",

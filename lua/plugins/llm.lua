@@ -110,5 +110,4 @@ return {
   {
     "github/copilot.vim",
   },
-  -- { "augmentcode/augment.vim" },
 }
