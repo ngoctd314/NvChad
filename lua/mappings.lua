@@ -98,6 +98,8 @@ end, { desc = "Telescope oldfiles" })
 -- terminal
 map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
+map("v", "<leader>r", "<cmd>SnipRun<cr>", { desc = "Run code" })
+
 -- local nomap = vim.keymap.del
 -- nomap("i", "<C-b>")
 -- nomap("i", "<C-e>")
@@ -135,3 +137,4 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 -- nomap({ "n", "t" }, "<A-i>")
 -- nomap("n", "<leader>wK")
 -- nomap("n", "<leader>wk")
+--

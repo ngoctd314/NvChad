@@ -1,4 +1,3 @@
 - vim.lsp.buf.signature_help (title)
-- color of blink cmp icon
 - debug
-- fzf search
+- copy file path

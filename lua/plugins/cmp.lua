@@ -51,7 +51,7 @@ return {
         },
         list = {
           selection = {
-            preselect = true,
+            preselect = false,
             -- When `true`, inserts the completion item automatically when selecting it
             auto_insert = true,
           },
@@ -94,11 +94,15 @@ return {
       cmdline = {
         keymap = { preset = "inherit" },
         completion = {
-          trigger = {
-            show_on_blocked_trigger_characters = {},
-            show_on_x_blocked_trigger_characters = {},
+          menu = { auto_show = true },
+          list = {
+            selection = {
+              -- When `true`, will automatically select the first item in the completion list
+              preselect = false,
+              -- When `true`, inserts the completion item automatically when selecting it
+              auto_insert = true,
+            },
           },
-          menu = { auto_show = false },
           ghost_text = { enabled = false },
         },
       },

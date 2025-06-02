@@ -27,12 +27,18 @@ M.base46 = {
   hl_add = {
     AvanteSidebarWinSeparator = { bg = colors.bg500, fg = colors.border },
     AvanteSidebarWinHorizontalSeparator = { bg = colors.bg500, fg = colors.bg500 },
+    AvantePromptInputBorder = { fg = colors.border },
+
     NeoTreeWinSeparator = { bg = colors.bg500, fg = colors.border },
     NeoTreeCursorLine = { bg = colors.bg300 },
+
     BlinkCmpMenuBorder = { fg = colors.border },
     BlinkCmpDocBorder = { fg = colors.border },
     BlinkCmpSignatureHelpBorder = { fg = colors.border },
+
     NoiceCmdlinePopupBorder = { bg = colors.bg500, fg = colors.border },
+    WindowPickerStatusLineNC = { fg = colors.red500, bg = colors.bg500 },
+    DiagnosticError = { fg = colors.red500 },
   },
 
   hl_override = {
