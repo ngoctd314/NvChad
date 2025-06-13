@@ -2,6 +2,7 @@ local options = {
   formatters_by_ft = {
     lua = { "stylua" },
     go = { "golines", "goimports" },
+    -- go = { "gofmt", "goimports" },
     javascript = { "biome" },
     tsx = { "biome" },
     json = { "biome" },

@@ -18,6 +18,16 @@ local options = {
         prompt_position = "top",
       },
     },
+    borderchars = {
+      "─",
+      "│",
+      "─",
+      "│",
+      "┌",
+      "┐",
+      "┘",
+      "└", -- Standard border characters
+    },
     mappings = {
       i = {
         ["<C-j>"] = actions.cycle_history_next,

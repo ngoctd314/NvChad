@@ -80,10 +80,6 @@ return {
     --   }
     -- end
     vim.lsp.buf.signature_help = function() end
-    vim.lsp.enable "gopls"
-    vim.lsp.config("gopls", {
-      capabilities = capabilities,
-    })
 
     local ensure_installed = vim.tbl_keys(servers or {})
     require("mason-tool-installer").setup { ensure_installed = ensure_installed }

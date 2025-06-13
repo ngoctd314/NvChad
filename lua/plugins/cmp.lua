@@ -20,6 +20,7 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "Kaiser-Yang/blink-cmp-avante",
+      "giuxtaposition/blink-cmp-copilot",
     },
 
     version = "1.*",
@@ -92,7 +93,10 @@ return {
         },
       },
       cmdline = {
-        keymap = { preset = "inherit" },
+        keymap = {
+          preset = "inherit",
+          ["<Tab>"] = { "show_and_insert", "select_next" },
+        },
         completion = {
           menu = { auto_show = true },
           list = {
@@ -108,12 +112,18 @@ return {
       },
 
       sources = {
-        default = { "avante", "lsp", "path", "snippets", "buffer" },
+        default = { "avante", "lsp", "path", "snippets", "buffer", "copilot" },
         providers = {
           avante = {
             module = "blink-cmp-avante",
             name = "Avante",
             opts = {},
+          },
+          copilot = {
+            name = "copilot",
+            module = "blink-cmp-copilot",
+            score_offset = 100,
+            async = true,
           },
         },
       },
