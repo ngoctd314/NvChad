@@ -40,12 +40,19 @@ return {
         spacing = 2,
       },
     }
-    map("n", "K", vim.diagnostic.open_float, { desc = "Open Diagnostics in Float" })
+    map("n", "K", function()
+      vim.diagnostic.open_float {
+        border = "single", -- solid
+        max_width = 80,
+        focusable = true,
+        silent = true,
+      }
+    end, { desc = "Open Diagnostics in Float" })
     map("n", "S", function()
       vim.lsp.buf.hover {
         border = "single", -- solid
         max_width = 80,
-        focusable = false,
+        focusable = true,
         silent = true,
       }
     end, { desc = "show documentation", buffer = buf })
@@ -68,17 +75,7 @@ return {
     local original_capabilities = vim.lsp.protocol.make_client_capabilities()
     local capabilities = require("blink.cmp").get_lsp_capabilities(original_capabilities)
 
-    -- local signatureHelp = vim.lsp.buf.signature_help
-    -- vim.lsp.buf.signature_help = function()
-    --   return signatureHelp {
-    --     title = "Test",
-    --     title_pos = "left",
-    --     border = "single",
-    --     max_width = 80,
-    --     focusable = false,
-    --     silent = true,
-    --   }
-    -- end
+    -- Disable signature help to avoid conflicts with Blink
     vim.lsp.buf.signature_help = function() end
 
     local ensure_installed = vim.tbl_keys(servers or {})

@@ -1,8 +1,5 @@
 require "nvchad.options"
 
--- add yours here!
-
--- local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
 local opt = vim.opt
 local o = vim.o
@@ -58,12 +55,14 @@ opt.whichwrap:append "<>[]hl"
 vim.wo.wrap = true
 vim.wo.linebreak = true
 
+-- vim.cmd [[cab cc CodeCompanion]]
+
 -- -- disable some default providers
 -- g.loaded_node_provider = 0
 -- g.loaded_python3_provider = 0
 -- g.loaded_perl_provider = 0
 -- g.loaded_ruby_provider = 0
--- g.mkdp_theme = "light"
+g.mkdp_theme = "light"
 --
 -- -- add binaries installed by mason.nvim to path
 -- local is_windows = vim.fn.has "win32" ~= 0

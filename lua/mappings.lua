@@ -24,10 +24,9 @@ map("n", "L", "<cmd>bnext<cr>", { desc = "Buffer next" })
 map("n", "H", "<cmd>bprevious<cr>", { desc = "Buffer previous" })
 
 local builtin = require "telescope.builtin"
+map("n", "<leader>f", function() end, { desc = "Find anything" })
 map("n", "<leader>fa", function()
   builtin.find_files {
-    prompt_title = "",
-    preview_title = "",
     follow = true,
     no_ignore = true,
     hidden = true,
@@ -35,7 +34,9 @@ map("n", "<leader>fa", function()
 end, { desc = "telescope find all files" })
 
 map("n", "<leader>ff", function()
-  builtin.find_files {}
+  builtin.find_files {
+    no_ignore = true,
+  }
 end, { desc = "telescope find files" })
 
 map("n", "<leader>fb", function()
@@ -82,41 +83,20 @@ map("t", "<C-x>", "<C-\\><C-N>", { desc = "terminal escape terminal mode" })
 
 map("v", "<leader>r", "<cmd>SnipRun<cr>", { desc = "Run code" })
 
--- local nomap = vim.keymap.del
--- nomap("i", "<C-b>")
--- nomap("i", "<C-e>")
--- nomap("i", "<C-h>")
--- nomap("i", "<C-l>")
--- nomap("i", "<C-j>")
--- nomap("i", "<C-k>")
--- nomap("n", "<C-h>")
--- nomap("n", "<C-l>")
--- nomap("n", "<Esc>")
--- nomap("n", "<C-s>")
--- nomap("n", "<C-c>")
--- nomap("n", "<leader>n")
--- nomap("n", "<leader>rn")
--- nomap("n", "<leader>ch")
--- nomap({ "n", "x" }, "<leader>fm")
--- nomap("n", "<leader>ds")
--- nomap("n", "<leader>b")
--- nomap("n", "<tab>")
--- nomap("n", "<S-tab>")
--- nomap("n", "<leader>x")
--- nomap("n", "<leader>/")
--- nomap("v", "<leader>/")
--- nomap("n", "<C-n>")
--- nomap("n", "<leader>fw")
--- nomap("n", "<leader>fh")
--- nomap("n", "<leader>ma")
--- nomap("n", "<leader>cm")
--- nomap("n", "<leader>gt")
--- nomap("n", "<leader>pt")
--- nomap("n", "<leader>th")
--- nomap("n", "<leader>v")
--- nomap({ "n", "t" }, "<A-v>")
--- nomap({ "n", "t" }, "<A-h>")
--- nomap({ "n", "t" }, "<A-i>")
--- nomap("n", "<leader>wK")
--- nomap("n", "<leader>wk")
---
+-- codecompanion
+map("n", "<leader>a", function() end, { desc = "AI tools" })
+map("n", "<leader>at", function()
+  require("codecompanion").toggle()
+end, { desc = "Toggle code companion" })
+
+map("v", "<leader>at", ":CodeCompanion ", { desc = "CodeCompanion inline" })
+map("v", "<leader>ae", ":CodeCompanion /expert<cr>", { desc = "CodeCompanion inline" })
+
+map(
+  { "n", "v" },
+  "<leader>fca",
+  "<cmd>CodeCompanionActions<cr>",
+  { desc = "code companion action", noremap = true, silent = true }
+)
+
+map("v", "<cr>", ":lua require'sniprun'.run('v')<cr>", { desc = "Run code in visual mode" })

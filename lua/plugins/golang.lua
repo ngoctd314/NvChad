@@ -1,9 +1,7 @@
 return {
   "olexsmir/gopher.nvim",
   ft = "go",
-  build = function()
-    vim.cmd.GoInstallDeps()
-  end,
+  build = function() end,
   opts = {
     -- log level, you might consider using DEBUG or TRACE for debugging the plugin
     log_level = vim.log.levels.INFO,

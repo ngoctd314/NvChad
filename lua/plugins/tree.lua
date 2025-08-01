@@ -5,7 +5,16 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
     "MunifTanjim/nui.nvim",
-    -- {"3rd/image.nvim", opts = {}}, -- Optional image support in preview window: See `# Preview Mode` for more information
+    -- {
+    --   "antosha417/nvim-lsp-file-operations",
+    --   dependencies = {
+    --     "nvim-lua/plenary.nvim",
+    --     "nvim-neo-tree/neo-tree.nvim", -- makes sure that this loads after Neo-tree.
+    --   },
+    --   config = function()
+    --     require("lsp-file-operations").setup()
+    --   end,
+    -- },
     {
       "s1n7ax/nvim-window-picker", -- for open_with_window_picker keymaps
       version = "2.*",
@@ -46,6 +55,14 @@ return {
             show_path = "absolute", -- "none", "relative", "absolute"
           },
         },
+        ["Y"] = {
+          function(state)
+            local node = state.tree:get_node()
+            local path = node:get_id()
+            vim.fn.setreg("+", path, "c")
+          end,
+          desc = "Copy Path to Clipboard",
+        },
       },
     },
     filesystem = {
@@ -58,6 +75,8 @@ return {
           ["f"] = "noop",
         },
       },
+      bind_to_cwd = false,
+      use_libuv_file_watcher = true,
       follow_current_file = {
         enabled = true,
         leave_dirs_open = true, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
